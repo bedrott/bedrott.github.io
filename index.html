@@ -1,10 +1,328 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-    <title>Bedrott</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bedrott</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h1>Olá, eu sou Bedrott!</h1>
-    <p>Apaixonado por tecnologia, informática e software.</p>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <span class="nav-logo">bedrott<span class="dot">.</span></span>
+    <ul class="nav-links">
+      <li><a href="#sobre">sobre</a></li>
+      <li><a href="#skills">skills</a></li>
+      <li><a href="#projetos">projetos</a></li>
+      <li><a href="#contato">contato</a></li>
+    </ul>
+    <button class="menu-btn" id="menuBtn" aria-label="menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#sobre" onclick="closeMenu()">sobre</a>
+    <a href="#skills" onclick="closeMenu()">skills</a>
+    <a href="#projetos" onclick="closeMenu()">projetos</a>
+    <a href="#contato" onclick="closeMenu()">contato</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-text" aria-hidden="true">BEDROTT</div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">// creative technologist</p>
+      <h1 class="hero-title">
+        Oi, eu sou<br />
+        <span class="hero-name">Cristiano</span>
+      </h1>
+      <p class="hero-sub">
+        Apaixonado por tecnologia, Linux e construir coisas novas.<br />
+        Sonhando grande — hardware, software, experiências.
+      </p>
+      <div class="hero-cta">
+        <a href="#projetos" class="btn btn-primary">ver projetos</a>
+        <a href="#contato" class="btn btn-ghost">entrar em contato</a>
+      </div>
+    </div>
+    <div class="hero-terminal" aria-hidden="true">
+      <div class="terminal-bar">
+        <span class="t-dot red"></span>
+        <span class="t-dot yellow"></span>
+        <span class="t-dot green"></span>
+        <span class="t-title">~/bedrott</span>
+      </div>
+      <div class="terminal-body" id="terminalBody"></div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="section" id="sobre">
+    <div class="container">
+      <p class="section-eyebrow">// sobre mim</p>
+      <h2 class="section-title">Quem sou eu</h2>
+      <div class="sobre-grid">
+        <div class="sobre-text">
+          <p>
+            Tenho 18 anos e desde cedo percebi que quero mais do que usar tecnologia — 
+            quero <strong>entender e construir</strong> ela. Comecei explorando Linux, 
+            passei por várias distros (Arch, CachyOS, Fedora, Mint) e aprendi a customizar 
+            ambientes do zero.
+          </p>
+          <p>
+            Crio edits no TikTok com ~40k seguidores, já desenvolvi um site para um time 
+            de futebol, e tenho um sonho maior: fundar uma empresa de smartphones e hardware 
+            que realmente inove — a <strong>Delphinium Electronics</strong>.
+          </p>
+          <p>
+            Meu jeito de aprender: entender → testar → questionar → melhorar.
+          </p>
+        </div>
+        <div class="sobre-cards">
+          <div class="about-card">
+            <span class="about-card-icon">🐧</span>
+            <span class="about-card-label">Linux<br /><small>Arch · CachyOS · Fedora · Mint</small></span>
+          </div>
+          <div class="about-card">
+            <span class="about-card-icon">🎬</span>
+            <span class="about-card-label">Edição<br /><small>~40k no TikTok</small></span>
+          </div>
+          <div class="about-card">
+            <span class="about-card-icon">🌐</span>
+            <span class="about-card-label">Web Dev<br /><small>HTML · CSS · JS</small></span>
+          </div>
+          <div class="about-card">
+            <span class="about-card-icon">📱</span>
+            <span class="about-card-label">Hardware<br /><small>Smartphones & Design</small></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section section-alt" id="skills">
+    <div class="container">
+      <p class="section-eyebrow">// habilidades</p>
+      <h2 class="section-title">O que eu sei fazer</h2>
+      <div class="skills-grid">
+
+        <div class="skill-group">
+          <h3 class="skill-group-title">Linux & Sistemas</h3>
+          <div class="skill-tags">
+            <span class="tag">Arch Linux</span>
+            <span class="tag">CachyOS</span>
+            <span class="tag">Fedora</span>
+            <span class="tag">Linux Mint</span>
+            <span class="tag">Rice / Customização</span>
+            <span class="tag">Terminal</span>
+            <span class="tag">Bash</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3 class="skill-group-title">Web</h3>
+          <div class="skill-tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">GitHub Pages</span>
+            <span class="tag">VS Code</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3 class="skill-group-title">Criação</h3>
+          <div class="skill-tags">
+            <span class="tag">Edição de Vídeo</span>
+            <span class="tag">TikTok</span>
+            <span class="tag">Storytelling Visual</span>
+            <span class="tag">Design de Produto</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3 class="skill-group-title">Interesses técnicos</h3>
+          <div class="skill-tags">
+            <span class="tag">Hardware</span>
+            <span class="tag">Arquitetura de Computadores</span>
+            <span class="tag">Android</span>
+            <span class="tag">IA</span>
+            <span class="tag">Otimização de Sistemas</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETOS -->
+  <section class="section" id="projetos">
+    <div class="container">
+      <p class="section-eyebrow">// projetos</p>
+      <h2 class="section-title">O que eu construí</h2>
+      <div class="projects-grid">
+
+        <div class="project-card featured">
+          <div class="project-tag">conceito de produto</div>
+          <h3 class="project-title">Delphinium Zero</h3>
+          <p class="project-desc">
+            Dispositivo híbrido smartphone + computador com Dual Boot (Android + Linux/Windows), 
+            IA emocional integrada, design premium e sistema modular. O projeto que carrego 
+            desde os 13 anos.
+          </p>
+          <div class="project-stack">
+            <span>Hardware Design</span>
+            <span>Concept</span>
+            <span>AI</span>
+            <span>Dual Boot</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-tag">site</div>
+          <h3 class="project-title">Site de Time de Futebol</h3>
+          <p class="project-desc">
+            Desenvolvi um site completo para um time de futebol — meu primeiro projeto 
+            web real entregue para um cliente.
+          </p>
+          <div class="project-stack">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-tag">linux rice</div>
+          <h3 class="project-title">Arch Linux Setup</h3>
+          <p class="project-desc">
+            Ambiente Linux completamente customizado do zero — window manager, 
+            dotfiles, scripts e tudo mais. Eficiência sem abrir mão da estética.
+          </p>
+          <div class="project-stack">
+            <span>Arch Linux</span>
+            <span>Dotfiles</span>
+            <span>Bash</span>
+            <span>WM</span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-tag">criação de conteúdo</div>
+          <h3 class="project-title">TikTok — Edits</h3>
+          <p class="project-desc">
+            Criação de edits com foco em timing visual e impacto estético. 
+            Construí uma audiência de ~40k seguidores com consistência e criatividade.
+          </p>
+          <div class="project-stack">
+            <span>Edição de Vídeo</span>
+            <span>TikTok</span>
+            <span>~40k seguidores</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section class="section section-alt" id="contato">
+    <div class="container">
+      <p class="section-eyebrow">// contato</p>
+      <h2 class="section-title">Vamos conversar</h2>
+      <p class="contato-sub">
+        Quer colaborar, trocar ideia sobre tech ou só bater um papo? Me chama.
+      </p>
+      <div class="social-links">
+        <a href="https://github.com/bedrott" target="_blank" class="social-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          GitHub
+        </a>
+        <a href="https://tiktok.com/@bedrott" target="_blank" class="social-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V9.05a8.16 8.16 0 004.77 1.52V7.13a4.85 4.85 0 01-1-.44z"/></svg>
+          TikTok
+        </a>
+        <a href="mailto:seuemail@gmail.com" class="social-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>
+          Email
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>feito por <strong>Cristiano (bedrott)</strong> — 2025</p>
+    <p class="footer-sub">construído com HTML · CSS · JS · GitHub Pages</p>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+      menuBtn.classList.toggle('active');
+    });
+    function closeMenu() {
+      mobileMenu.classList.remove('open');
+      menuBtn.classList.remove('active');
+    }
+
+    const lines = [
+      '$ whoami',
+      'cristiano (bedrott)',
+      '',
+      '$ cat interesses.txt',
+      'linux, hardware, web dev,',
+      'edição de vídeo, animes...',
+      '',
+      '$ ls distros/',
+      'arch  cachyos  fedora  mint',
+      '',
+      '$ echo $SONHO',
+      'Fundar a Delphinium Electronics',
+      '',
+      '$ _'
+    ];
+    const tb = document.getElementById('terminalBody');
+    let i = 0;
+    function typeLine() {
+      if (i >= lines.length) return;
+      const div = document.createElement('div');
+      div.className = lines[i].startsWith('$') ? 't-cmd' : 't-out';
+      div.textContent = lines[i];
+      tb.appendChild(div);
+      tb.scrollTop = tb.scrollHeight;
+      i++;
+      setTimeout(typeLine, lines[i - 1] === '' ? 80 : 120);
+    }
+    setTimeout(typeLine, 800);
+
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.project-card, .about-card, .skill-group').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
 </body>
 </html>
