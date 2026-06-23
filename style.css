@@ -469,3 +469,18 @@ body {
   .sobre-cards { grid-template-columns: 1fr; }
   .music-btn { bottom: 1rem; right: 1rem; padding: 0.5rem 1rem; }
 }
+.video-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+  width: 100%;
+}
+
+.meu-video-player {
+  max-width: 100%; /* Isso garante que o vídeo não saia da tela no celular */
+  width: 600px;    /* Largura ideal no computador */
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid #1a1a1a;
+  background-color: #000;
+}
