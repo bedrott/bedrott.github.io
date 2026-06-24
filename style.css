@@ -155,11 +155,40 @@ body {
   color: #555;
 }
 
-/* RESPONSIVE */
+/* RESPONSIVE - AJUSTES PARA CELULAR */
 @media (max-width: 900px) {
-  .custom-hero { padding: 6rem 2rem; }
-  .profile-container { flex-direction: column; align-items: center; text-align: center; }
-  .profile-header-row { justify-content: center; } 
-  .profile-text-content { text-align: center; align-items: center; }
-  .terminal-container { margin: 20px; }
+  /* Hero e Perfil */
+  .custom-hero { padding: 4rem 1rem; }
+  .profile-container { 
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+    gap: 1.5rem;
+  }
+  .profile-header-row { 
+    justify-content: center; 
+    flex-direction: column; 
+    gap: 0.5rem; 
+  }
+  .profile-text-content { 
+    text-align: center; 
+    align-items: center; 
+  }
+
+  /* Terminal */
+  .terminal-container { 
+    margin: 20px 10px; /* Margem lateral menor no celular */
+    width: calc(100% - 20px); /* Garante que não saia da tela */
+    max-width: 100%;
+  }
+  
+  #terminal-output {
+    font-size: 12px; /* Fonte um pouco menor para caber melhor */
+    padding: 10px;
+  }
+
+  /* Ajuste para o conteúdo do fastfetch não quebrar */
+  .terminal-container pre {
+    font-size: 5px !important; /* Diminui a arte ASCII no celular */
+  }
 }
