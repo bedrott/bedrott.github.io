@@ -5,159 +5,164 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bedrott</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <nav class="nav">
-    <div class="nav-logo">bedrott<span class="dot">.</span></div>
-    <ul class="nav-links">
-      <li><a href="#sobre">sobre</a></li>
-      <li><a href="#skills">skills</a></li>
-      <li><a href="#projetos">projetos</a></li>
-      <li><a href="#contato">contato</a></li>
-    </ul>
-    <button class="menu-btn" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <div class="mobile-menu">
-    <a href="#sobre">sobre</a>
-    <a href="#skills">skills</a>
-    <a href="#projetos">projetos</a>
-    <a href="#contato">contato</a>
-  </div>
 
   <section class="custom-hero">
     <div class="profile-container">
       <div class="profile-avatar-wrapper">
         <img src="avatar.png" alt="Bedrott Perfil" class="profile-pic" />
       </div>
-
       <div class="profile-text-content">
         <div class="profile-header-row">
           <h1 class="profile-display-name">Bedrott</h1>
-          <span class="profile-handle">@bedrott</span>
+          <span class="profile-handle">@bedrott404</span>
         </div>
-
         <div class="profile-stats">
           <div><strong>42.7K</strong> <span>Seguidores</span></div>
           <div><strong>2.6M</strong> <span>Curtidas</span></div>
         </div>
-
-        <p class="profile-bio">
-          Apenas um jovem larper compilando ideias no quarto.
-        </p>
-
-        <div class="profile-actions">
-          <a href="#projetos" class="profile-btn">projetos</a>
-          <a href="#contato" class="profile-btn">contato</a>
-        </div>
+        <p class="profile-bio">Apenas um jovem larper compilando ideias no quarto.</p>
       </div>
     </div>
   </section>
 
-  <section class="section" id="sobre">
-    <div class="container">
-      <h2 class="section-title">Quem eu sou</h2>
-      <div class="sobre-grid">
-        <div class="sobre-text">
-          <p>
-            Entusiasta de sistemas e hardware, com foco obsessivo em performance e otimização. Minha jornada é movida pela curiosidade técnica: de ajustar timings de memória e reduzir latência de input, até a exploração profunda do ecossistema Linux e personalização de interfaces.
-          </p>
-          <p>
-            Não me limito a uma plataforma; acredito que o conhecimento está em entender as entranhas do Windows, Linux, iOS e Android. Atualmente, estou expandindo minha base técnica com HTML e CSS, unindo minha paixão por tecnologia com a visão de construir produtos que redefinam a experiência entre usuário e máquina. Movido a chá mate e café com leite.
-          </p>
-        </div>
-        <div class="sobre-cards">
-          <div class="about-card visible">
-            <span class="about-card-icon">🖥️</span>
-            <div class="about-card-label">
-              Hardware Atual<br>
-              <small>Ryzen 5 5600GT / 16GB RAM / 1.25TB SSD</small>
-            </div>
-          </div>
-        </div>
-      </div>
+  <div class="terminal-container">
+    <div class="terminal-header">
+      <div class="dot-window"></div>
+      <div class="dot-window"></div>
+      <div class="dot-window"></div>
     </div>
-  </section>
-
-  <section class="section" id="trabalhar-comigo">
-    <div class="container">
-      <h2 class="section-title">Por que trabalhar comigo?</h2>
-      <div class="sobre-text">
-        <p>
-          <strong>Edição de Vídeo:</strong> Produzo edits de alta qualidade com foco em satisfação visual. Confira meu trabalho abaixo:
-        </p>
-        
-        <div class="video-wrapper">
-          <video controls class="meu-video-player">
-            <source src="meu-video.mp4" type="video/mp4">
-            Seu navegador não suporta a reprodução de vídeo.
-          </video>
-        </div>
-
-        <p>
-          <strong>Domínio Técnico:</strong> Do hardware (montagem e otimização de sistemas) ao software (Linux/Windows/Android)...
-        </p>
-      </div>
-    </div>
-</section>
-
-  <section class="section" id="projetos">
-    <div class="container">
-      <h2 class="section-title">Meus Projetos</h2>
-      <div class="projects-grid">
-        <div class="project-card featured visible">
-          <h3 class="project-title">Nome do seu Projeto Principal</h3>
-          <p class="project-desc">Descreva brevemente o que esse projeto faz.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="contato">
-    <div class="container">
-      <h2 class="section-title">Vamos conversar</h2>
-      <div class="social-links">
-        <a href="https://github.com/seu-usuario" target="_blank" class="social-btn">GitHub</a>
-        <a href="https://tiktok.com/@seu-usuario" target="_blank" class="social-btn">TikTok</a>
-      </div>
-    </div>
-  </section>
+    <div id="terminal-output"></div>
+  </div>
 
   <footer class="footer">
     <div>&copy; 2026 Bedrott. Todos os direitos reservados.</div>
-    <div class="footer-sub">Compilado com foco e minimalismo.</div>
   </footer>
 
   <audio id="bg-music" src="musica.mp3" loop></audio>
-  <button id="music-toggle" class="music-btn">tocar música</button>
 
   <script>
-    const menuBtn = document.querySelector('.menu-btn');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    menuBtn.addEventListener('click', () => {
-      menuBtn.classList.toggle('active');
-      mobileMenu.classList.toggle('open');
-    });
-
+    const output = document.getElementById('terminal-output');
     const audio = document.getElementById('bg-music');
-    const btn = document.getElementById('music-toggle');
-    btn.addEventListener('click', () => {
-      if (audio.paused) {
-        audio.play();
-        btn.innerText = 'pausar música';
-        btn.classList.add('playing');
-      } else {
-        audio.pause();
-        btn.innerText = 'tocar música';
-        btn.classList.remove('playing');
-      }
-    });
+
+    // Função que calcula a idade real
+    function getUptime() {
+      const nasci = new Date(2007, 11, 3);
+      const hoje = new Date();
+      let anos = hoje.getFullYear() - nasci.getFullYear();
+      let meses = hoje.getMonth() - nasci.getMonth();
+      let dias = hoje.getDate() - nasci.getDate();
+      if (dias < 0) { meses--; dias += new Date(hoje.getFullYear(), hoje.getMonth(), 0).getDate(); }
+      if (meses < 0) { anos--; meses += 12; }
+      return `${anos} anos, ${meses} meses e ${dias} dias`;
+    }
+
+    function runFastfetch() {
+      output.innerHTML += `
+        <div style="display: flex; gap: 20px; font-family: 'Space Mono', monospace; margin: 10px 0; color: #ffffff;">
+          <div style="color: #cccccc;">
+            <pre style="font-size: 7px; line-height: 7px;">
+   =++++++++++++*-+=:=
+  *+++++++++++++++++++++:.::
+ #+++*%**+++++++*+*++++++++++-.::. ##
+%+++*-%%********+*#+++++++++++=:.::-%@*:.
++++#*-%@#*****+*:*+=+++++++=+++*..#..%@#:
+++++#+%%@@****+#:#+++++*=:..++...*..*.:%#:=
+*=++**+%%@@***+**#**+++++++-:==-:.+..#:.@%::
+*#*++#%%@@@%******+++++*+*=++#+++=*..:+:%%#.
+***+*#%%@@@@#******+++++**+++*+++++-:.*.%%%*
+##**#%%%@@%@#***#***++****++**+++++++.*.+%%%
+%##*%%%%@@%@@***#*****##*#+****++++++:#:.%%%*
+%@##*#=%=@%@@@*#####***#**#*%***+*+++++#=.%%@:%
+%%@##@##%-%#%*%####****#*##*=********+++#*.@#%#:*.
+=%#%#%@@%%+#%#@*@#%%%%%#+==#=:+==#####++++*:+%#@%%%%@
+=%-@########%@@@@@@@****::-::::::%%%#+#%++++:%%@@-@@%
+.@@%@%#############+#-------------%#*::+#++++:**#*
+ :.###############+#------------:----:##*+++*:=*#
+ *################+*-----------------###*+++**-*:
+.##################++=:::::::::::::::%###*+++**+=:
+:################++#*++:::=*:::%:::::##%##%+++***::
+####%############*+##++*::::::::::#########*++*##+:
+-#########%#######++#+#+++-::::############**+*###::
+#%######%#-########+#*++++:::%######%#######*+%####::
+ ##=****:*******#%#*+#+%*++*-::##%###########*+**###=::=:*
+ :**:::::=*:***%=#*#*+#=::%**#**%@%@@@@%@###*%
+ #::::::::::*::*%#####+*-:::****=-*@%%%@%###-##+%
+ .-*:::::::::::#:+*#*##*+%*+:=#++#:=:+*@%%@##%#::.
+ %*::-::::::::::#*:**#####%:::::::%-::*:::::%#@%*::
+ -***::*#+:::::::***:::*#****:::::***::#-:::::::::-*
+ %%***#::*+##*::::-#**:::::**:=*#*::::::::::::::::::::=:::::::::*+++++
++@%%%%%**:++:****=:-#***#::::::::::::::::::-:::::::::#:::::::::-+++*+
+@@@%%%%%#+::#*#####*#****-::::::::::::::::::-::::-#-:::::::::+++
+@@@@@@@@@@%%%+++-:-%%%#*##*****:::::::::::::::::::-*#-::::::::::++.
+%@@@@@@@@@@@-::::::::::@@%%%%%%*:::::::::::+*#+=###%%%%-:::::::+++
+ @==:::::::--::::--::::::::::-%%@@@@@@@*--::####*###*%%%%%%@%%@:::=+++#
+ @#+++++*-::::::::::+#%%%%%%@@@@@%%%########%@%%%%%@@%%@@++++
+  *-:-:----*::::=++++@@@%%%%@@@@%%%%%%%#%%%@@@@%%@@@@@@@@@@%::
+ +=:--*+++##+++-*++++*+++%@@%@%%%@@@%%%%%%%%%%@@@@@@@@@@@@@@@%%*%::
+ ==+++= :++++++++++++**++++@@@@@@@@%@@@@@@@@@@@@@@@@@@@%@@@@@@@@@@@@@:
+           ++++++++%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%%%%%%%@@@%%:
+             @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@@:*</pre>
+          </div>
+          <div>
+            <p>
+              <span style="color: #55ff55;">bedrott</span><span style="color: #ffffff;">@</span><span style="color: #55ff55;">terminal</span>
+            </p>
+            <div style="border-top: 1px solid #55ff55; margin: 5px 0; width: 200px;"></div>
+            
+            <p><span style="color: #55ff55;">Nome:</span> Cristiano Wichineski (Bedrott)</p>
+            <p><span style="color: #55ff55;">Uptime:</span> ${getUptime()}</p>
+            <p><span style="color: #55ff55;">Cor Favorita:</span> Preto</p>
+            <p><span style="color: #55ff55;">Artista Favorito:</span> Otuka</p>
+            <p><span style="color: #55ff55;">Música Favorita:</span> Skin - Otuka</p>
+            <p><span style="color: #55ff55;">Anime Favorito:</span> Darling in the Franxx</p>
+            <p><span style="color: #55ff55;">Local:</span> Curitiba, PR</p>
+            <p><span style="color: #55ff55;">Foco:</span> Otimizar Tudo</p>
+            <p><span style="color: #55ff55;">Habilidades:</span> Fazer Edits e Larpar na programação</p>
+            <p><span style="color: #55ff55;">Status:</span> Codando...</p>
+            <p><span style="color: #55ff55;">OS:</span> BedrottOS v1.0</p>
+          </div>
+        </div>
+      `;
+    }
+
+    function createPrompt() {
+      const promptDiv = document.createElement('div');
+      promptDiv.className = 'input-line';
+      promptDiv.innerHTML = `
+        <span class="prompt" style="font-family: 'Space Mono', monospace;">
+            <span style="color: #55ff55;">bedrott</span><span style="color: #ffffff;">@</span><span style="color: #55ff55;">terminal</span><span style="color: #55ff55;">:~$</span>
+        </span>
+        <input type="text" id="terminal-input" autofocus autocomplete="off" style="background: transparent; border: none; color: white; width: 80%; margin-left: 10px; outline: none; font-family: 'Space Mono', monospace;">
+      `;
+      output.appendChild(promptDiv);
+      const input = promptDiv.querySelector('input');
+      input.focus();
+      input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+          const cmd = input.value.toLowerCase().trim();
+          const commandLine = document.createElement('p');
+          commandLine.innerHTML = `<span style="color: #55ff55;">bedrott</span><span style="color: #ffffff;">@</span><span style="color: #55ff55;">terminal</span><span style="color: #55ff55;">:~$</span> ${input.value}`;
+          output.insertBefore(commandLine, promptDiv);
+          input.disabled = true;
+          if (cmd === 'help') { output.innerHTML += `<p>Comandos: whoami, clear, music, fastfetch</p>`; }
+          else if (cmd === 'whoami') { output.innerHTML += `<p>Jovem larper, entusiasta de sistemas e otimização.</p>`; }
+          else if (cmd === 'clear') { output.innerHTML = ''; }
+          else if (cmd === 'music') { audio.paused ? audio.play() : audio.pause(); output.innerHTML += `<p>Sistema: Música ${audio.paused ? 'pausada' : 'iniciada'}.</p>`; }
+          else if (cmd === 'fastfetch') { runFastfetch(); }
+          else if (cmd !== '') { output.innerHTML += `<p>Comando '${cmd}' não encontrado.</p>`; }
+          promptDiv.remove();
+          createPrompt();
+          output.scrollTop = output.scrollHeight;
+        }
+      });
+    }
+
+    runFastfetch();
+    output.innerHTML += `<p>Bem-vindo ao sistema Bedrott v1.0. Digite "help" para ver os comandos.</p>`;
+    createPrompt();
   </script>
 </body>
 </html>
