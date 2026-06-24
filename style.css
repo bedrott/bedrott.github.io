@@ -19,23 +19,24 @@ body {
   overflow-x: hidden;
 }
 
-/* HERO CENTRALIZADO */
+/* HERO - AGORA EMPILHADO E CENTRALIZADO */
 .custom-hero {
   background-color: var(--bg);
   min-height: auto; 
   display: flex;
   align-items: center; 
-  justify-content: center; /* Centralizado horizontalmente */
-  padding: 8rem 4rem 4rem 4rem; 
+  justify-content: center; 
+  padding: 3rem 2rem 4rem 2rem; 
   width: 100%;
 }
 
 .profile-container {
   display: flex;
-  align-items: center; /* Alinha a imagem e o texto ao centro verticalmente */
-  justify-content: center; /* Centraliza o conjunto imagem+texto */
-  gap: 3rem; 
-  max-width: 1200px;
+  flex-direction: column; /* EMPILHA: Foto em cima, texto embaixo */
+  align-items: center;    /* Centraliza horizontalmente */
+  text-align: center;     /* Centraliza o texto */
+  gap: 1.5rem;            /* Espaço entre foto e texto */
+  max-width: 800px;
   width: 100%;
 }
 
@@ -53,16 +54,15 @@ body {
 .profile-text-content { 
   display: flex; 
   flex-direction: column; 
+  align-items: center; /* Centraliza o conteúdo interno */
   gap: 0.8rem;
-  /* Texto continua alinhado à esquerda para leitura, 
-     mas o bloco está centralizado */
-  text-align: left; 
 }
 
 .profile-header-row {
   display: flex;
-  align-items: baseline;
-  gap: 15px;
+  flex-direction: column; /* Nome e @ também empilhados */
+  align-items: center;
+  gap: 0.2rem;
 }
 
 .profile-display-name { 
@@ -78,15 +78,15 @@ body {
   font-family: var(--mono); 
 }
 
-.profile-stats { font-size: 1rem; display: flex; gap: 1.5rem; }
+.profile-stats { font-size: 1rem; display: flex; justify-content: center; gap: 1.5rem; }
 .profile-stats strong { color: #ffffff; margin-right: 0.3rem; }
 
-.profile-bio { font-size: 1.05rem; color: var(--text); max-width: 580px; }
+.profile-bio { font-size: 1.05rem; color: var(--text); max-width: 500px; margin: 0 auto; }
 
 /* TERMINAL */
 .terminal-container {
-  max-width: 900px;
-  margin: 40px auto;
+  max-width: 1000px;
+  margin: 0px auto;
   background: #000000;
   border: 1px solid var(--border);
   border-radius: 6px;
@@ -150,45 +150,22 @@ body {
 /* FOOTER */
 .footer {
   padding: 2rem 4rem;
-  text-align: left;
+  text-align: center; /* Centralizado para combinar */
   font-size: 0.8rem;
   color: #555;
 }
 
-/* RESPONSIVE - AJUSTES PARA CELULAR */
+/* RESPONSIVE - AJUSTES DE SEGURANÇA */
 @media (max-width: 900px) {
-  /* Hero e Perfil */
   .custom-hero { padding: 4rem 1rem; }
-  .profile-container { 
-    flex-direction: column; 
-    align-items: center; 
-    text-align: center; 
-    gap: 1.5rem;
-  }
-  .profile-header-row { 
-    justify-content: center; 
-    flex-direction: column; 
-    gap: 0.5rem; 
-  }
-  .profile-text-content { 
-    text-align: center; 
-    align-items: center; 
-  }
-
-  /* Terminal */
+  
   .terminal-container { 
-    margin: 20px 10px; /* Margem lateral menor no celular */
-    width: calc(100% - 20px); /* Garante que não saia da tela */
-    max-width: 100%;
+    margin: 20px 10px; 
+    width: calc(100% - 20px); 
   }
   
-  #terminal-output {
-    font-size: 12px; /* Fonte um pouco menor para caber melhor */
-    padding: 10px;
-  }
-
-  /* Ajuste para o conteúdo do fastfetch não quebrar */
   .terminal-container pre {
-    font-size: 5px !important; /* Diminui a arte ASCII no celular */
+    font-size: 4px !important; 
+    line-height: 4px !important;
   }
 }
