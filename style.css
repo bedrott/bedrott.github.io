@@ -1,4 +1,8 @@
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
 
 :root {
   --bg: #000000;        
@@ -19,153 +23,82 @@ body {
   overflow-x: hidden;
 }
 
-/* HERO - AGORA EMPILHADO E CENTRALIZADO */
+.content-wrapper {
+  width: 95%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* HERO */
 .custom-hero {
-  background-color: var(--bg);
-  min-height: auto; 
-  display: flex;
-  align-items: center; 
-  justify-content: center; 
   padding: 3rem 2rem 4rem 2rem; 
-  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .profile-container {
   display: flex;
-  flex-direction: column; /* EMPILHA: Foto em cima, texto embaixo */
-  align-items: center;    /* Centraliza horizontalmente */
-  text-align: center;     /* Centraliza o texto */
-  gap: 1.5rem;            /* Espaço entre foto e texto */
-  max-width: 800px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.3rem;
   width: 100%;
 }
 
-.profile-avatar-wrapper {
-  width: 160px; 
-  height: 160px;
-  border-radius: 50%;
-  border: 1px solid var(--border); 
-  padding: 6px; 
-  flex-shrink: 0;
-}
-
+.profile-avatar-wrapper { width: 160px; height: 160px; border-radius: 50%; border: 1px solid var(--border); padding: 6px; }
 .profile-pic { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
 
-.profile-text-content { 
-  display: flex; 
-  flex-direction: column; 
-  align-items: center; /* Centraliza o conteúdo interno */
-  gap: 0.8rem;
-}
+.profile-text-content { display: flex; flex-direction: column; align-items: center; gap: 0; }
 
-.profile-header-row {
-  display: flex;
-  flex-direction: column; /* Nome e @ também empilhados */
-  align-items: center;
-  gap: 0.2rem;
-}
+.profile-display-name { font-size: 2.6rem; font-weight: 700; margin-bottom: -20px; }
 
-.profile-display-name { 
-  font-size: 2.6rem; 
-  font-weight: 700; 
-  color: #ffffff; 
-  line-height: 1; 
-}
+.profile-handle { font-size: 1.25rem; color: #666; font-family: var(--mono); margin-bottom: 15px; }
 
-.profile-handle { 
-  font-size: 1.25rem; 
-  color: #666666; 
-  font-family: var(--mono); 
-}
-
-.profile-stats { font-size: 1rem; display: flex; justify-content: center; gap: 1.5rem; }
+.profile-stats { font-size: 1rem; display: flex; gap: 1.5rem; }
 .profile-stats strong { color: #ffffff; margin-right: 0.3rem; }
-
-.profile-bio { font-size: 1.05rem; color: var(--text); max-width: 500px; margin: 0 auto; }
+.profile-bio { font-size: 1.05rem; max-width: 500px; }
 
 /* TERMINAL */
 .terminal-container {
-  max-width: 1000px;
-  margin: 0px auto;
-  background: #000000;
+  margin: -30px auto 4rem auto;
   border: 1px solid var(--border);
   border-radius: 6px;
   overflow: hidden;
   font-family: var(--mono);
+  height: 575px;
+  background: #000;
+  width: 100%;
+  max-width: 1000px;
 }
 
-.terminal-header {
-  background: #111111;
-  padding: 8px 12px;
-  display: flex;
-  gap: 6px;
-  border-bottom: 1px solid var(--border);
-}
+.terminal-header { background: #111; padding: 8px 12px; display: flex; gap: 6px; border-bottom: 1px solid var(--border); }
 .dot-window { width: 10px; height: 10px; border-radius: 50%; background: #555; }
 
-#terminal-output {
-  padding: 15px;
-  color: #ffffff;
-  font-size: 14px;
-  height: 500px;
+#terminal-output { 
+  padding: 15px; 
+  color: #fff; 
+  font-size: 14px; 
+  height: 530px; 
   overflow-y: auto;
-  line-height: 1.5;
+  line-height: 1.5; /* Adicione esta linha aqui */
 }
 
-.input-line {
+.input-line { display: flex; padding: 15px 15px 10px 15px; background: #000; }
+#terminal-input { background: transparent; border: none; color: #fff; width: 100%; margin-left: 10px; outline: none; font-family: inherit; }
+
+.footer { text-align: center; font-size: 0.8rem; color: #555; padding-bottom: 2rem; }
+
+@media (max-width: 768px) {
+  .terminal-container { height: auto; max-width: 95%; }
+}
+
+/* Adicione isso ao seu CSS */
+#terminal-output p, .input-line {
   display: flex;
-  padding: 15px 15px 10px 15px;
-  background: #000000;
-  color: #ffffff;
+  white-space: nowrap; /* Impede que o texto quebre linhas */
 }
 
-#terminal-input {
-  background: transparent;
-  border: none;
-  color: #ffffff;
-  width: 100%;
-  margin-left: 10px;
-  outline: none;
-  font-family: inherit;
-  font-size: 14px;
-}
-
-/* BOTÃO MÚSICA */
-.music-btn {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  z-index: 999;
-  background-color: #000000;
-  color: #ffffff;
-  border: 1px solid var(--border);
-  padding: 0.55rem 1.3rem;
-  border-radius: 50px;
-  font-family: var(--font);
-  font-size: 0.8rem;
-  cursor: pointer;
-}
-.music-btn:hover { background-color: #222; }
-
-/* FOOTER */
-.footer {
-  padding: 2rem 4rem;
-  text-align: center; /* Centralizado para combinar */
-  font-size: 0.8rem;
-  color: #555;
-}
-
-/* RESPONSIVE - AJUSTES DE SEGURANÇA */
-@media (max-width: 900px) {
-  .custom-hero { padding: 4rem 1rem; }
-  
-  .terminal-container { 
-    margin: 20px 10px; 
-    width: calc(100% - 20px); 
-  }
-  
-  .terminal-container pre {
-    font-size: 4px !important; 
-    line-height: 4px !important;
-  }
+/* Isso remove qualquer espaçamento invisível entre elementos inline-block */
+.prompt span {
+  display: inline-block;
 }
