@@ -6,48 +6,54 @@
   <title>Bedrott</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 <body>
 
-  <section class="custom-hero">
-    <div class="profile-container">
-      <div class="profile-avatar-wrapper">
-        <img src="avatar.gif" alt="Bedrott Perfil" class="profile-pic" />
-      </div>
-      <div class="profile-text-content">
-        <div class="profile-header-row">
-          <h1 class="profile-display-name">Bedrott</h1>
-          <span class="profile-handle">@bedrott404</span>
+  <main class="content-wrapper">
+    <section class="custom-hero">
+      <div class="profile-container">
+        <div class="profile-avatar-wrapper">
+          <img src="avatar.gif" alt="Bedrott Perfil" class="profile-pic" />
         </div>
-        <div class="profile-stats">
-          <div><strong>42.7K</strong> <span>Seguidores</span></div>
-          <div><strong>2.6M</strong> <span>Curtidas</span></div>
+        <div class="profile-text-content">
+          <div class="profile-header-row">
+            <h1 class="profile-display-name">Bedrott</h1>
+            <span class="profile-handle">@bedrott404</span>
+          </div>
+          <div class="profile-stats">
+            <div><strong>42.7K</strong> <span>Seguidores</span></div>
+            <div><strong>2.6M</strong> <span>Curtidas</span></div>
+          </div>
+          <p class="profile-bio">Apenas um jovem larper compilando ideias no quarto.</p>
         </div>
-        <p class="profile-bio">Apenas um jovem larper compilando ideias no quarto.</p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <div class="terminal-container">
-    <div class="terminal-header">
-      <div class="dot-window"></div>
-      <div class="dot-window"></div>
-      <div class="dot-window"></div>
+    <div class="terminal-container">
+      <div class="terminal-header">
+        <div class="dot-window"></div>
+        <div class="dot-window"></div>
+        <div class="dot-window"></div>
+      </div>
+      <div id="terminal-output"></div>
     </div>
-    <div id="terminal-output"></div>
-  </div>
 
-  <footer class="footer">
-    <div>&copy; 2026 Bedrott. Todos os direitos reservados.</div>
-  </footer>
+    <footer class="footer">
+      <div>&copy; 2026 Bedrott. Todos os direitos reservados.</div>
+    </footer>
+  </main>
 
   <audio id="bg-music" src="musica.mp3" loop></audio>
 
   <script>
     const output = document.getElementById('terminal-output');
     const audio = document.getElementById('bg-music');
+    const color = "#f67c7c"; 
 
-    // Função que calcula a idade real
+    // Prefixo padronizado
+    const getPrefix = () => `<span style="color:${color};">bedrott</span><span style="color:#ffffff;">@</span><span style="color:${color};">terminal</span><span style="color:${color};">:~$</span>`;
+
     function getUptime() {
       const nasci = new Date(2007, 11, 3);
       const hoje = new Date();
@@ -60,10 +66,11 @@
     }
 
     function runFastfetch() {
-      output.innerHTML += `
+      const div = document.createElement('div');
+      div.innerHTML = `
         <div style="display: flex; gap: 20px; font-family: 'Space Mono', monospace; margin: 10px 0; color: #ffffff;">
           <div style="color: #cccccc;">
-            <pre style="font-size: 7px; line-height: 7px;">
+            <pre style="font-size: 6px; line-height: 7px;">
    =++++++++++++*-+=:=
   *+++++++++++++++++++++:.::
  #+++*%**+++++++*+*++++++++++-.::. ##
@@ -107,62 +114,68 @@
              @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%@@:*</pre>
           </div>
           <div>
-            <p>
-              <span style="color: #55ff55;">bedrott</span><span style="color: #ffffff;">@</span><span style="color: #55ff55;">terminal</span>
-            </p>
-            <div style="border-top: 1px solid #55ff55; margin: 5px 0; width: 200px;"></div>
-            
-            <p><span style="color: #55ff55;">Nome:</span> Cristiano Wichineski (Bedrott)</p>
-            <p><span style="color: #55ff55;">Uptime:</span> ${getUptime()}</p>
-            <p><span style="color: #55ff55;">Cor Favorita:</span> Preto</p>
-            <p><span style="color: #55ff55;">Artista Favorito:</span> Otuka</p>
-            <p><span style="color: #55ff55;">Música Favorita:</span> Skin - Otuka</p>
-            <p><span style="color: #55ff55;">Anime Favorito:</span> Darling in the Franxx</p>
-            <p><span style="color: #55ff55;">Local:</span> Curitiba, PR</p>
-            <p><span style="color: #55ff55;">Foco:</span> Otimizar Tudo</p>
-            <p><span style="color: #55ff55;">Habilidades:</span> Fazer Edits e Larpar na programação</p>
-            <p><span style="color: #55ff55;">Status:</span> Codando...</p>
-            <p><span style="color: #55ff55;">OS:</span> BedrottOS v1.0</p>
+            <p>${getPrefix()}</p>
+            <div style="border-top: 1px solid ${color}; margin: 5px 0; width: 200px;"></div>
+            <p style="margin-bottom:1px;"><span style="color:${color};">Nome:</span> Cristiano Wichineski (Bedrott)</p>
+            <p style="margin-bottom:1px;"><span style="color:${color};">Uptime:</span> ${getUptime()}</p>
+            <p style="margin-bottom:1px;"><span style="color:${color};">Cor Favorita:</span> Preto</p>
+            <p style="margin-bottom:1px;"><span style="color:${color};">Artista Favorito:</span> Otuka</p>
+            <p style="margin-bottom:1px;"><span style="color:${color};">Música Favorita:</span> Skin - Otuka</p>
+            <p style="margin-bottom:1px;"><span style="color:${color};">Anime Favorito:</span> Darling in the Franxx</p>
+            <p style="margin-bottom:1px;"><span style="color:${color};">Local:</span> Curitiba, PR</p>
+            <p style="margin-bottom:1px;"><span style="color:${color};">Foco:</span> Otimizar Tudo</p>
+            <p style="margin-bottom:1px;"><span style="color:${color};">Habilidades:</span> Fazer Edits e Larpar na programação</p>
+            <p style="margin-bottom:1px;"><span style="color:${color};">Status:</span> Codando...</p>
+            <p style="margin-bottom:1px;"><span style="color:${color};">OS:</span> BedrottOS v1.0</p>
           </div>
-        </div>
-      `;
+        </div>`;
+      output.appendChild(div);
     }
 
     function createPrompt() {
       const promptDiv = document.createElement('div');
       promptDiv.className = 'input-line';
-      promptDiv.innerHTML = `
-        <span class="prompt" style="font-family: 'Space Mono', monospace;">
-            <span style="color: #55ff55;">bedrott</span><span style="color: #ffffff;">@</span><span style="color: #55ff55;">terminal</span><span style="color: #55ff55;">:~$</span>
-        </span>
-        <input type="text" id="terminal-input" autofocus autocomplete="off" style="background: transparent; border: none; color: white; width: 80%; margin-left: 10px; outline: none; font-family: 'Space Mono', monospace;">
-      `;
+      promptDiv.innerHTML = `${getPrefix()}<input type="text" autofocus style="background:transparent; border:none; color:#ffffff; width:80%; margin-left:10px; outline:none; font-family:'Space Mono', monospace;">`;
       output.appendChild(promptDiv);
+
       const input = promptDiv.querySelector('input');
       input.focus();
+
       input.addEventListener('keydown', function(e) {
         if (e.key === 'Enter') {
           const cmd = input.value.toLowerCase().trim();
-          const commandLine = document.createElement('p');
-          commandLine.innerHTML = `<span style="color: #55ff55;">bedrott</span><span style="color: #ffffff;">@</span><span style="color: #55ff55;">terminal</span><span style="color: #55ff55;">:~$</span> ${input.value}`;
-          output.insertBefore(commandLine, promptDiv);
-          input.disabled = true;
-          if (cmd === 'help') { output.innerHTML += `<p>Comandos: whoami, clear, music, fastfetch</p>`; }
-          else if (cmd === 'whoami') { output.innerHTML += `<p>Jovem larper, entusiasta de sistemas e otimização.</p>`; }
-          else if (cmd === 'clear') { output.innerHTML = ''; }
-          else if (cmd === 'music') { audio.paused ? audio.play() : audio.pause(); output.innerHTML += `<p>Sistema: Música ${audio.paused ? 'pausada' : 'iniciada'}.</p>`; }
-          else if (cmd === 'fastfetch') { runFastfetch(); }
-          else if (cmd !== '') { output.innerHTML += `<p>Comando '${cmd}' não encontrado.</p>`; }
-          promptDiv.remove();
+
+          // 1. Apenas substitui o input atual pelo texto fixo do comando digitado
+          // Isso evita criar um novo elemento <p> que duplica o prompt
+          promptDiv.innerHTML = `${getPrefix()} ${input.value}`;
+
+          // 2. Cria um novo container para a resposta (para não misturar com o prompt)
+          const responseDiv = document.createElement('div');
+          
+          if (cmd === 'help') { responseDiv.innerHTML = `<p style="margin:0;">Comandos: whoami, clear, music, fastfetch</p>`; }
+          else if (cmd === 'whoami') { responseDiv.innerHTML = `<p style="margin:0;">Jovem larper, entusiasta de sistemas e otimização.</p>`; }
+          else if (cmd === 'clear') { output.innerHTML = ''; return createPrompt(); }
+          else if (cmd === 'music') { audio.paused ? audio.play() : audio.pause(); responseDiv.innerHTML = `<p style="margin:0;">Sistema: Música ${audio.paused ? 'pausada' : 'iniciada'}.</p>`; }
+          else if (cmd === 'fastfetch') { 
+              runFastfetch(); 
+              return createPrompt(); // Retorna direto para não criar div de resposta vazia
+          }
+          else if (cmd !== '') { responseDiv.innerHTML = `<p style="margin:0;">Comando '${cmd}' não encontrado.</p>`; }
+          
+          output.appendChild(responseDiv);
+          
+          // 3. Cria o novo prompt limpo para a próxima linha
           createPrompt();
           output.scrollTop = output.scrollHeight;
         }
       });
     }
 
-    runFastfetch();
-    output.innerHTML += `<p>Bem-vindo ao sistema Bedrott v1.0. Digite "help" para ver os comandos.</p>`;
-    createPrompt();
+    // Inicialização
+    output.innerHTML = ""; // Limpa tudo antes de começar
+    runFastfetch(); // Primeiro ele abre o fastfetch
+    output.innerHTML += `<p>Bem-vindo ao sistema Bedrott v1.0. Digite "help" para ver os comandos.</p>`; // Depois a mensagem
+    createPrompt(); // Por fim, cria o prompt para digitar
   </script>
 </body>
 </html>
