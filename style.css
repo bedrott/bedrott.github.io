@@ -29,7 +29,6 @@ body {
   margin: 0 auto;
 }
 
-/* HERO */
 .custom-hero {
   padding: 3rem 2rem 4rem 2rem; 
   display: flex;
@@ -58,7 +57,6 @@ body {
 .profile-stats strong { color: #ffffff; margin-right: 0.3rem; }
 .profile-bio { font-size: 1.05rem; max-width: 500px; }
 
-/* TERMINAL */
 .terminal-container {
   margin: -30px auto 4rem auto;
   border: 1px solid var(--border);
@@ -80,7 +78,7 @@ body {
   font-size: 14px; 
   height: 530px; 
   overflow-y: auto;
-  line-height: 1.5; /* Adicione esta linha aqui */
+  line-height: 1.5; 
 }
 
 .input-line { display: flex; padding: 15px 15px 10px 15px; background: #000; }
@@ -92,13 +90,11 @@ body {
   .terminal-container { height: auto; max-width: 95%; }
 }
 
-/* Adicione isso ao seu CSS */
 #terminal-output p, .input-line {
   display: flex;
-  white-space: nowrap; /* Impede que o texto quebre linhas */
+  white-space: nowrap; 
 }
 
-/* Isso remove qualquer espaçamento invisível entre elementos inline-block */
 .prompt span {
   display: inline-block;
 }
