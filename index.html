@@ -51,8 +51,7 @@
     const audio = document.getElementById('bg-music');
     const color = "#f67c7c"; 
 
-    // Prefixo padronizado
-    const getPrefix = () => `<span style="color:${color};">bedrott</span><span style="color:#ffffff;">@</span><span style="color:${color};">terminal</span><span style="color:${color};">:~$</span>`;
+    const getPrefix = () => `<span style="color:${color};">bedrott</span><span style="color:#ffffff;">@</span><span style="color:${color};">btw</span><span style="color:${color};">:~$</span>`;
 
     function getUptime() {
       const nasci = new Date(2007, 12, 3);
@@ -145,11 +144,8 @@
         if (e.key === 'Enter') {
           const cmd = input.value.toLowerCase().trim();
 
-          // 1. Apenas substitui o input atual pelo texto fixo do comando digitado
-          // Isso evita criar um novo elemento <p> que duplica o prompt
           promptDiv.innerHTML = `${getPrefix()} ${input.value}`;
 
-          // 2. Cria um novo container para a resposta (para não misturar com o prompt)
           const responseDiv = document.createElement('div');
           
           if (cmd === 'help') { responseDiv.innerHTML = `<p style="margin:0;">Comandos: whoami, clear, music, fastfetch</p>`; }
@@ -158,24 +154,22 @@
           else if (cmd === 'music') { audio.paused ? audio.play() : audio.pause(); responseDiv.innerHTML = `<p style="margin:0;">Sistema: Música ${audio.paused ? 'pausada' : 'iniciada'}.</p>`; }
           else if (cmd === 'fastfetch') { 
               runFastfetch(); 
-              return createPrompt(); // Retorna direto para não criar div de resposta vazia
+              return createPrompt();
           }
           else if (cmd !== '') { responseDiv.innerHTML = `<p style="margin:0;">Comando '${cmd}' não encontrado.</p>`; }
           
           output.appendChild(responseDiv);
-          
-          // 3. Cria o novo prompt limpo para a próxima linha
+                 
           createPrompt();
           output.scrollTop = output.scrollHeight;
         }
       });
     }
 
-    // Inicialização
-    output.innerHTML = ""; // Limpa tudo antes de começar
-    runFastfetch(); // Primeiro ele abre o fastfetch
-    output.innerHTML += `<p>Bem-vindo ao sistema Bedrott v1.0. Digite "help" para ver os comandos.</p>`; // Depois a mensagem
-    createPrompt(); // Por fim, cria o prompt para digitar
+    output.innerHTML = ""; 
+    runFastfetch(); 
+    output.innerHTML += `<p>Bem-vindo ao sistema Bedrott v1.0. Digite "help" para ver os comandos.</p>`; 
+    createPrompt(); 
   </script>
 </body>
 </html>
